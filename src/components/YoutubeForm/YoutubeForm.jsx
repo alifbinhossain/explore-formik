@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import React from 'react';
 import * as Yup from 'yup';
+import TextError from '../TextError';
 
 const initialValues = {
   name: '',
@@ -51,7 +52,7 @@ const YoutubeForm = () => {
                       className=' focus:outline-none px-4 py-2 rounded-md'
                     />
                   </div>
-                  <ErrorMessage name='name' />
+                  <ErrorMessage name='name' component={TextError} />
                 </div>
 
                 <div className='flex flex-col gap-2'>
@@ -67,7 +68,9 @@ const YoutubeForm = () => {
                       className=' focus:outline-none px-4 py-2 rounded-md'
                     />
                   </div>
-                  <ErrorMessage name='email' />
+                  <ErrorMessage name='email'>
+                    {(error) => <div className='text-red-600'>{error}</div>}
+                  </ErrorMessage>
                 </div>
 
                 <div className='flex flex-col gap-2 w-max'>
