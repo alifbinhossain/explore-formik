@@ -6,6 +6,8 @@ const initialValues = {
   name: '',
   email: '',
   channel: '',
+  comments: '',
+  address: '',
 };
 
 const onSubmit = (values) => {
@@ -18,6 +20,7 @@ const validationSchema = Yup.object({
     .email('Invalid Email Format')
     .required('This field is required'),
   channel: Yup.string().required('This field is required'),
+  address: Yup.string().required('This field is required'),
 });
 
 const YoutubeForm = () => {
@@ -29,7 +32,7 @@ const YoutubeForm = () => {
         onSubmit={onSubmit}
       >
         {(formik) => {
-          console.log(formik);
+          // console.log(formik);
 
           return (
             <div>
@@ -81,6 +84,48 @@ const YoutubeForm = () => {
                     />
                   </div>
                   <ErrorMessage name='channel' />
+                </div>
+
+                <div className='flex flex-col gap-2 w-full'>
+                  <div className='flex flex-col'>
+                    <label htmlFor='comments' className='mb-2'>
+                      Comments
+                    </label>
+                    <Field
+                      as='textarea'
+                      id='comments'
+                      name='comments'
+                      placeholder='write here..'
+                      className='w-full focus:outline-none px-4 py-2 rounded-md'
+                    />
+                  </div>
+                  <ErrorMessage name='comments' />
+                </div>
+
+                <div className='flex flex-col gap-2 w-full'>
+                  <div className='flex flex-col'>
+                    <label htmlFor='address' className='mb-2'>
+                      Address
+                    </label>
+                    <Field name='address'>
+                      {(props) => {
+                        console.log(props);
+                        const { field, form, meta } = props;
+                        return (
+                          <div>
+                            <input
+                              className='focus:outline-none px-4 py-2 rounded-md'
+                              {...field}
+                            />
+
+                            {meta.touched && meta.error && (
+                              <div className='text-red-600'>{meta.error}</div>
+                            )}
+                          </div>
+                        );
+                      }}
+                    </Field>
+                  </div>
                 </div>
 
                 <button
