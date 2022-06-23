@@ -31,9 +31,9 @@ p {
 a {
   @apply hover:text-primary font-semibold transition duration-300 ease-in-out lg:text-[2.4rem] text-[16px]  leading-tight;
 }
-button {
+/* button {
   @apply lg:text-[2.4rem] text-[16px]  font-semibold leading-tight px-[5rem] py-[2.4rem] text-white active:scale-95 transition-all transform bg-secondary rounded-[0.8rem];
-}
+} */
 .bg-style {
   @apply bg-cover bg-no-repeat bg-center;
 }
