@@ -20,6 +20,6 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/YoutubeForm/YoutubeForm.jsx"
+    "src/components/YoutubeForm/YoutubeForm.tsx"
   ]
 }
